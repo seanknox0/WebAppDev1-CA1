@@ -1,12 +1,15 @@
 package main
 
+import models.AppointmentModel
 import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 
+var appointment = AppointmentModel()
+
 fun main(args: Array<String>){
     logger.info { "Launching Clinic Appointment Console App" }
-    println("Clinic Appointment Kotlin App Version 1.0")
+    println("Clinic Appointment Kotlin App Version 2.0")
 
     var input: Int
 
@@ -25,11 +28,25 @@ fun main(args: Array<String>){
 }
 
 fun makeAppointment() {
-    println("You Chose Make Appointment")
+    println("Make Appointment")
+    println()
+    print("Enter a Patient : ")
+    appointment.patient = readLine()!!
+    print("Enter a Date : ")
+    appointment.date = readLine()!!
+    println("You entered [ " + appointment.patient + " ] for patient" +
+            " and [ " + appointment.date + " ] for date")
 }
 
 fun updateAppointment() {
-    println("You Chose Update Appointment")
+    println("Update Placemark")
+    println()
+    print("Enter a new Title for [ " + appointment.patient + " ] : ")
+    appointment.patient = readLine()!!
+    print("Enter a new Description for [ " + appointment.date + " ] : ")
+    appointment.date = readLine()!!
+    println("You updated [ " + appointment.patient + " ] for title " +
+            "and [ " + appointment.date + " ] for description")
 }
 
 fun listAllAppointments() {

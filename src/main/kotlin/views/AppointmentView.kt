@@ -1,7 +1,5 @@
 package views
 
-import main.appointmentView
-import main.appointments
 import models.AppointmentMemStore
 import models.AppointmentModel
 

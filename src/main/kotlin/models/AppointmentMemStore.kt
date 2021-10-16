@@ -28,6 +28,10 @@ class AppointmentMemStore : AppointmentStore {
         logAll()
     }
 
+    override fun delete(appointment: AppointmentModel) {
+        appointments.remove(appointment)
+    }
+
     override fun update(appointment: AppointmentModel) {
         var foundAppointment = findOne(appointment.id!!)
         if (foundAppointment != null) {

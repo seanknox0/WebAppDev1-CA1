@@ -1,5 +1,6 @@
 package controllers
 
+import models.AppointmentJSONStore
 import mu.KotlinLogging
 import models.AppointmentMemStore
 import models.AppointmentModel
@@ -7,7 +8,9 @@ import views.AppointmentView
 
 class AppointmentController {
 
-    val appointments = AppointmentMemStore()
+    //val appointments = AppointmentMemStore()
+    val appointments = AppointmentJSONStore()
+
     val appointmentView = AppointmentView()
     val logger = KotlinLogging.logger {}
 
@@ -25,7 +28,8 @@ class AppointmentController {
                 1 -> add()
                 2 -> update()
                 3 -> list()
-                4 -> search()
+                4 -> delete()
+                5 -> search()
                 -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
@@ -66,6 +70,20 @@ class AppointmentController {
         }
         else
             println("Appointment Not Updated...")
+    }
+
+    fun delete() {
+        appointmentView.listAppointments(appointments)
+        var searchId = appointmentView.getId()
+        val aAppointment = search(searchId)
+
+        if(aAppointment != null) {
+            appointments.delete(aAppointment)
+            println("Appointment Deleted...")
+            appointmentView.listAppointments(appointments)
+        }
+        else
+            println("Appointment Not Deleted...")
     }
 
     fun search() {

@@ -43,6 +43,11 @@ class AppointmentJSONStore : AppointmentStore {
         serialize()
     }
 
+    override fun delete(appointment: AppointmentModel) {
+        appointments.remove(appointment)
+        serialize()
+    }
+
     override fun update(appointment: AppointmentModel) {
         var foundAppointment = findOne(appointment.id!!)
         if (foundAppointment != null) {

@@ -1,7 +1,8 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
     id 'java'
-    id("org.openjfx.javafxplugin") version "0.0.10"
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
 group 'org.example'
@@ -9,7 +10,15 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    mavenCentral()
+}
+
+compileKotlin { kotlinOptions.jvmTarget= 11 }
+
+compileTestKotlin {    kotlinOptions.jvmTarget = "11"}
+
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls', 'javafx.graphics']
 }
 
 dependencies {

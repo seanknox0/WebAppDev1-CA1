@@ -16,11 +16,11 @@ class ListAppointmentScreen : View("List All Appointments") {
 
 
     override val root = vbox {
-        setPrefSize(600.0, 200.0)
+        setPrefSize(1000.0, 600.0)
         tableview(data) {
             readonlyColumn("ID", AppointmentModel::id)
-            readonlyColumn("TITLE", AppointmentModel::patient)
-            readonlyColumn("DESCRIPTION", AppointmentModel::date)
+            readonlyColumn("PATIENT", AppointmentModel::patient)
+            readonlyColumn("DATE", AppointmentModel::date)
         }
         button("Close") {
             useMaxWidth = true

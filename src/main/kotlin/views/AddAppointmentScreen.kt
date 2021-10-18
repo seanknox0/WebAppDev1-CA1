@@ -1,9 +1,10 @@
 package views
 
+import controllers.AppointmentUIController
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Orientation
-import controllers.AppointmentUIController
 import tornadofx.*
+import tornadofx.Stylesheet.Companion.form
 import kotlin.reflect.KClass
 
 class AddAppointmentScreen : View("Add Appointment") {
@@ -13,13 +14,13 @@ class AddAppointmentScreen : View("Add Appointment") {
     val appointmentUIController: AppointmentUIController by inject()
 
     override val root = form {
-        setPrefSize(600.0, 200.0)
+        setPrefSize(1000.0, 600.0)
         fieldset(labelPosition = Orientation.VERTICAL) {
             field("Patient") {
                 textfield(_patient).required()
             }
             field("Date") {
-                textarea(_date).required()
+                textfield(_date).required()
             }
             button("Add") {
                 enableWhen(model.valid)

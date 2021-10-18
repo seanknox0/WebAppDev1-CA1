@@ -10,7 +10,7 @@ class MenuScreen : View("Clinic Appointment Main Menu") {
     val appointmentUIController: AppointmentUIController by inject()
 
     override val root = form {
-        setPrefSize(400.0, 200.0)
+        setPrefSize(1000.0, 600.0)
         fieldset(labelPosition = Orientation.VERTICAL) {
             text("")
             button("Add Appointment") {
@@ -24,6 +24,17 @@ class MenuScreen : View("Clinic Appointment Main Menu") {
                 }
             }
             text("")
+            button("Update Appointment") {
+
+                isDefaultButton = true
+                useMaxWidth = true
+                action {
+                    runAsyncWithProgress {
+                        appointmentUIController.loadUpdateScreen()
+                    }
+                }
+            }
+            text("")
             button("List All Appointments") {
 
                 isDefaultButton = true
@@ -31,6 +42,28 @@ class MenuScreen : View("Clinic Appointment Main Menu") {
                 action {
                     runAsyncWithProgress {
                         appointmentUIController.loadListScreen()
+                    }
+                }
+            }
+            text("")
+            button("Delete Appointment") {
+
+                isDefaultButton = true
+                useMaxWidth = true
+                action {
+                    runAsyncWithProgress {
+                        appointmentUIController.loadDeleteScreen()
+                    }
+                }
+            }
+            text("")
+            button("Search Appointment (Using ID)") {
+
+                isDefaultButton = true
+                useMaxWidth = true
+                action {
+                    runAsyncWithProgress {
+                        appointmentUIController.loadSearchScreen()
                     }
                 }
             }

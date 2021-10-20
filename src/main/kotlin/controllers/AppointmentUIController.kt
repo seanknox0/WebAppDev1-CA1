@@ -19,20 +19,21 @@ class AppointmentUIController : Controller() {
         logger.info { "Launching Clinic Appointment TornadoFX UI App" }
     }
 
-    fun add(_patient : String, _date : String){
-
-        var aAppointment = AppointmentModel(patient = _patient, date = _date)
+    fun add(_patient : String, _date : String, _time : String, _price : Double){
+        var aAppointment = AppointmentModel(patient = _patient, date = _date, time = _time, price = _price)
         appointments.create(aAppointment)
         logger.info("Appointment Added")
     }
 
-    fun update(_id: String, _patient: String, _date: String){
+    fun update(_id: String, _patient: String, _date: String, _time: String, _price: Double){
         var aId = getId(_id)
         var appointmentChange = search(aId)
 
         if(appointmentChange != null) {
             appointmentChange.patient = _patient
             appointmentChange.date = _date
+            appointmentChange.time = _time
+            appointmentChange.price = _price
             logger.info("Appointment Updated : [ $appointmentChange ]")
         }
         else {
@@ -67,7 +68,6 @@ class AppointmentUIController : Controller() {
 
     fun search(_id : String) : AppointmentModel {
         val aAppointment = search(getId(_id))!!
-        println(aAppointment)
         showAppointment(aAppointment)
         return aAppointment
     }
@@ -147,5 +147,4 @@ class AppointmentUIController : Controller() {
             find(ListAppointmentScreen::class).replaceWith(MenuScreen::class, sizeToScene = true, centerOnScreen = true)
         }
     }
-
 }

@@ -1,4 +1,5 @@
 import controllers.AppointmentUIController
+import javafx.beans.property.SimpleDoubleProperty
 import javafx.beans.property.SimpleLongProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Orientation
@@ -10,6 +11,8 @@ class SearchAppointmentScreen : View("Search Appointment") {
     val _id = model.bind { SimpleLongProperty() }
     val _patient = model.bind { SimpleStringProperty() }
     val _date = model.bind { SimpleStringProperty() }
+    val _time = model.bind { SimpleStringProperty() }
+    val _price = model.bind { SimpleDoubleProperty() }
     val appointmentUIController: AppointmentUIController by inject()
     val tableContent = appointmentUIController.appointments.findAll()
     val data = tableContent.observable()
@@ -21,6 +24,8 @@ class SearchAppointmentScreen : View("Search Appointment") {
                 readonlyColumn("ID", AppointmentModel::id)
                 readonlyColumn("PATIENT", AppointmentModel::patient)
                 readonlyColumn("DATE", AppointmentModel::date)
+                readonlyColumn("TIME", AppointmentModel::time)
+                readonlyColumn("PRICE", AppointmentModel::price)
             }
             field("ID") {
                 textfield(_id).required()
@@ -31,7 +36,7 @@ class SearchAppointmentScreen : View("Search Appointment") {
                 useMaxWidth = true
                 action {
                     runAsyncWithProgress {
-                        appointmentUIController.search(_id.toString())
+                        appointmentUIController.search(_id.value.toString())
                     }
                 }
             }
@@ -49,6 +54,8 @@ class SearchAppointmentScreen : View("Search Appointment") {
     override fun onDock() {
         _patient.value = ""
         _date.value = ""
+        _time.value = ""
+        _price.value = 0.0
         model.clearDecorators()
     }
 }

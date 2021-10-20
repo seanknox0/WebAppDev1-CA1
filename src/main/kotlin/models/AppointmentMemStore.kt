@@ -37,6 +37,8 @@ class AppointmentMemStore : AppointmentStore {
         if (foundAppointment != null) {
             foundAppointment.patient = appointment.patient
             foundAppointment.date = appointment.date
+            foundAppointment.time = appointment.time
+            foundAppointment.price = appointment.price
         }
     }
 

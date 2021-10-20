@@ -16,7 +16,7 @@ class AppointmentController {
 
     init {
         logger.info { "Launching Clinic Appointment Console App" }
-        println("Appointment Kotlin App Version 3.0")
+        println("Appointment Kotlin App Version 4.0")
     }
 
     fun start() {
@@ -98,8 +98,8 @@ class AppointmentController {
     }
 
     fun dummyData() {
-        appointments.create(AppointmentModel(patient = "Joe Joey", date = "12-03-21"))
-        appointments.create(AppointmentModel(patient= "Ring of Kerry", date = "10-04-21"))
-        appointments.create(AppointmentModel(patient = "Waterford City", date = "06-04-21"))
+        appointments.create(AppointmentModel(patient = "Joe Joey", date = "12-03-21", time = "13:00", price = 50.00))
+        appointments.create(AppointmentModel(patient= "Ring of Kerry", date = "10-04-21", time = "15:00", price = 20.00))
+        appointments.create(AppointmentModel(patient = "Waterford City", date = "06-04-21", time = "09:00", price = 70.00))
     }
 }

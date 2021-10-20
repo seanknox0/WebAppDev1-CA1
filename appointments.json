@@ -1,22 +1,9 @@
 [
   {
-    "id": -612449576476826669,
-    "patient": "Sean Knox",
-    "date": "04-24-21"
-  },
-  {
-    "id": -8991361096408558421,
-    "patient": "John Robertson",
-    "date": "12-05-21"
-  },
-  {
-    "id": -7881647376634187010,
-    "patient": "StringProperty [bean: tornadofx.ViewModel@811802ec, value: Bob Dylan]",
-    "date": "StringProperty [bean: tornadofx.ViewModel@811802ec, value: 23-04-21]"
-  },
-  {
-    "id": -7500214171719885181,
-    "patient": "StringProperty [bean: tornadofx.ViewModel@67137527, value: Jimmy Hendricks]",
-    "date": "StringProperty [bean: tornadofx.ViewModel@67137527, value: 13-02-21]"
+    "id": 54869,
+    "patient": "Dan OBrien",
+    "date": "05-02-21",
+    "time": "16:00",
+    "price": 30.0
   }
 ]

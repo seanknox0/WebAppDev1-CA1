@@ -1,9 +1,5 @@
 package views
 
-import javafx.beans.property.SimpleObjectProperty
-import javafx.collections.FXCollections
-import javafx.scene.control.TableView
-import javafx.scene.layout.GridPane
 import controllers.AppointmentUIController
 import models.AppointmentModel
 import tornadofx.*
@@ -21,6 +17,8 @@ class ListAppointmentScreen : View("List All Appointments") {
             readonlyColumn("ID", AppointmentModel::id)
             readonlyColumn("PATIENT", AppointmentModel::patient)
             readonlyColumn("DATE", AppointmentModel::date)
+            readonlyColumn("TIME", AppointmentModel::time)
+            readonlyColumn("PRICE", AppointmentModel::price)
         }
         button("Close") {
             useMaxWidth = true
@@ -31,5 +29,4 @@ class ListAppointmentScreen : View("List All Appointments") {
             }
         }
     }
-
 }

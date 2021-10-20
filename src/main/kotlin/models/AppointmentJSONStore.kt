@@ -7,6 +7,7 @@ import mu.KotlinLogging
 
 import helpers.*
 import java.util.*
+import kotlin.math.absoluteValue
 
 private val logger = KotlinLogging.logger {}
 
@@ -15,7 +16,9 @@ val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<AppointmentModel>>() {}.type
 
 fun generateRandomId(): Long {
-    return Random().nextLong()
+    val randomId = Math.abs(Random().nextLong())
+    val genId = randomId / 100000000000000;
+    return genId
 }
 
 class AppointmentJSONStore : AppointmentStore {
@@ -53,6 +56,8 @@ class AppointmentJSONStore : AppointmentStore {
         if (foundAppointment != null) {
             foundAppointment.patient = appointment.patient
             foundAppointment.date = appointment.date
+            foundAppointment.time = appointment.time
+            foundAppointment.price = appointment.price
         }
         serialize()
     }

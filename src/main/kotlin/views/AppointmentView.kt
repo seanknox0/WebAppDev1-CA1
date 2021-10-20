@@ -43,30 +43,43 @@ class AppointmentView {
     }
 
     fun addAppointmentData(appointment : AppointmentModel) : Boolean {
-
         println()
         print("Enter a Patient : ")
         appointment.patient = readLine()!!
         print("Enter a Date : ")
         appointment.date = readLine()!!
+        print("Enter a Time : ")
+        appointment.time = readLine()!!
+        print("Enter a Price : ")
+        appointment.price = readLine()!!.toDouble()
 
         return appointment.patient.isNotEmpty() && appointment.date.isNotEmpty()
+                && appointment.time.isNotEmpty() && appointment.price.isNaN()
     }
 
     fun updateAppointmentData(appointment : AppointmentModel) : Boolean {
 
         var tempPatient: String?
         var tempDate: String?
+        var tempTime: String?
+        var tempPrice: Double?
 
         if (appointment != null) {
             print("Enter a new Patient Name for [ " + appointment.patient + " ] : ")
             tempPatient = readLine()!!
             print("Enter a new Date for [ " + appointment.date + " ] : ")
             tempDate = readLine()!!
+            print("Enter a new Time for [ " + appointment.time + " ] : ")
+            tempTime = readLine()!!
+            print("Enter a new Price for [ " + appointment.price + " ] : ")
+            tempPrice = readLine()!!.toDouble()
 
-            if (!tempPatient.isNullOrEmpty() && !tempDate.isNullOrEmpty()) {
+            if (!tempPatient.isNullOrEmpty() && !tempDate.isNullOrEmpty()
+                && !tempTime.isNullOrEmpty() && !tempPrice.isNaN()) {
                 appointment.patient = tempPatient
                 appointment.date = tempDate
+                appointment.time = tempTime
+                appointment.price = tempPrice
                 return true
             }
         }

@@ -16,6 +16,7 @@ compileKotlin { kotlinOptions.jvmTarget= 11 }
 
 compileTestKotlin {    kotlinOptions.jvmTarget = "11"}
 
+
 javafx {
     version = "11.0.2"
     modules = ['javafx.controls', 'javafx.graphics']
@@ -23,6 +24,8 @@ javafx {
 
 dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.31'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
@@ -30,6 +33,7 @@ dependencies {
     implementation 'io.github.microutils:kotlin-logging:2.0.11'
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'no.tornado:tornadofx:1.7.20'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
 test {

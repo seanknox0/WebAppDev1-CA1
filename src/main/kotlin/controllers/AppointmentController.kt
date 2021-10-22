@@ -8,8 +8,8 @@ import views.AppointmentView
 
 class AppointmentController {
 
-    //val appointments = AppointmentMemStore()
-    val appointments = AppointmentJSONStore()
+    val appointments = AppointmentMemStore()
+    //val appointments = AppointmentJSONStore()
 
     val appointmentView = AppointmentView()
     val logger = KotlinLogging.logger {}
@@ -28,8 +28,7 @@ class AppointmentController {
                 1 -> add()
                 2 -> update()
                 3 -> list()
-                4 -> delete()
-                5 -> search()
+                4 -> search()
                 -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")

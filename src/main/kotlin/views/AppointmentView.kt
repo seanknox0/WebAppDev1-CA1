@@ -15,8 +15,7 @@ class AppointmentView {
         println(" 1. Make Appointment")
         println(" 2. Update Appointment")
         println(" 3. List All Appointments")
-        println(" 4. Delete Appointment")
-        println(" 5. Search Appointments")
+        println(" 4. Search Appointments")
         println("-1. Exit")
         println()
         print("Enter Option : ")
@@ -28,7 +27,7 @@ class AppointmentView {
         return option
     }
 
-    fun listAppointments(appointments : AppointmentJSONStore) {
+    fun listAppointments(appointments : AppointmentMemStore) {
         println("List All Appointments")
         println()
         appointments.logAll()
@@ -54,7 +53,7 @@ class AppointmentView {
         appointment.price = readLine()!!.toDouble()
 
         return appointment.patient.isNotEmpty() && appointment.date.isNotEmpty()
-                && appointment.time.isNotEmpty() && appointment.price.isNaN()
+                && appointment.time.isNotEmpty()
     }
 
     fun updateAppointmentData(appointment : AppointmentModel) : Boolean {
@@ -75,7 +74,7 @@ class AppointmentView {
             tempPrice = readLine()!!.toDouble()
 
             if (!tempPatient.isNullOrEmpty() && !tempDate.isNullOrEmpty()
-                && !tempTime.isNullOrEmpty() && !tempPrice.isNaN()) {
+                && !tempTime.isNullOrEmpty()) {
                 appointment.patient = tempPatient
                 appointment.date = tempDate
                 appointment.time = tempTime
